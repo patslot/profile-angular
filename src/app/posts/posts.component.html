@@ -1,20 +1,16 @@
-<button class="btn btn-primary">click</button>
+<button id="test" class="btn btn-primary">click</button>
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let post of posts">
-      <th>{{ post.userId}}</th>
-      <td>{{ post.id}}</td>
-      <td>{{ post.title}}</td>
-      <td>{{ post.body}}</td>
+      <th>{{ post.title}}</th>
+      <td>{{ post.price}}</td>
     </tr>
 
   </tbody>

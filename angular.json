@@ -28,10 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "../node_modules/bootstrap/dist/css/bootstrap.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.js",
+              "./src/assets/js/plugins.js",
+              "./src/assets/js/modernizr.js",
+              "./src/assets/js/pace.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +99,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.js",
+              "./src/assets/js/plugins.js",
+              "./src/assets/js/modernizr.js",
+              "./src/assets/js/pace.min.js",
+              "./src/assets/js/main.js"
+            ]
           }
         },
         "lint": {

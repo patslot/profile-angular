@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
-
-  constructor(private http: HttpClient) { }
+  offers: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.offers = db.list('offers').valueChanges();
+   }
 
   getAllPosts(){
-    return  this.http.get('/posts/').pipe(map( (posts) =>{
-      return posts;
-    }));
+    return  this.offers;
   }
 }
