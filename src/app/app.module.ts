@@ -1,18 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
+//Basic Angular provider
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
 import { HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 
+//Data Fetch
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
 import { environment } from 'src/environments/environment';
-
-import { PostsComponent } from './posts/posts.component';
-
 import { PostsService } from './posts.service';
+
+//Site Component
+import { PostsComponent } from './posts/posts.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -47,7 +47,7 @@ import { FeaturePostComponent } from './feature-post/feature-post.component';
     AngularFireDatabaseModule,
     AppRoutingModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

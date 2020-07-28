@@ -18,9 +18,7 @@ export class PostsComponent implements OnInit {
     this.postService.getAllPosts().subscribe(posts => {
       this.posts = posts
     });
-    $('#test').click(function(){
-      alert('test');
-    });
+
   }
 
 }

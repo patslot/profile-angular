@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map, filter} from 'rxjs/operators';
+import { Observable, pipe } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
 
 
@@ -13,8 +13,16 @@ export class PostsService {
   constructor(private db: AngularFireDatabase) {
     this.offers = db.list('offers').valueChanges();
    }
-
   getAllPosts(){
     return  this.offers;
+  }
+  getFeaturePosts(){
+    return this.offers
+    .pipe(
+      map(s => s.sort( (a,b) => ( new Date(a.date).getTime() < new Date(b.date).getTime() ) ? 1 : -1 ))
+    )
+    .pipe(
+      map(s => s.filter(s => s.feature == 1)))
+    ;
   }
 }
